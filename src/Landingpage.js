@@ -1,25 +1,26 @@
 import React from "react";
-import './Landingpage.css';
-import {motion} from 'framer-motion';
+import "./Landingpage.css";
+import { motion } from "framer-motion";
+import videoBg from "./images/fight.mp4";
+import logo from "./images/devduel.jpg";
 
 function LandingPg() {
-    return (
-        <>
-        <div className="Landingpg">
-            <motion.div
-              initial= {{x: "70rem" , opacity: 0 }}
-              animate= {{x: 0 , opacity: 1}}
-              transition={{
-                duration: 2,
-                type: "spring",
-                transition:2,
-              }
-              }
+  return (
+    <>
+      <div className="bgvideo">
+        <div className="content-outer"></div>
+        <div className="content">
+          <h1>DevDuel</h1>
+          <h3>Programming quizz</h3>
 
-            className="intro"></motion.div>
-            </div>
-            </>
-    );
+          <div class="button-borders">
+            <button class="primary-button">START</button>
+          </div>
+        </div>
+        <video src={videoBg} autoPlay loop muted />
+      </div>
+    </>
+  );
 }
 
 export default LandingPg;
