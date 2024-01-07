@@ -1,7 +1,4 @@
-
- 
- 
- * {
+* {
    margin: 0;
    padding: 0;
  }
@@ -24,7 +21,6 @@
  }
 
  .bgvideo-outer {
-   /* filter: grayscale(1); */
    filter:contrast(1.5);
  }
 
@@ -43,7 +39,6 @@
    flex-direction: column;
    align-items: center;
    justify-content: center;
-   /* font-style: italic; */
    font-stretch: extra-expanded;
    z-index: 1;
  }
@@ -51,8 +46,7 @@
  h1 {
    font-weight: 900;
    font-size: 10vh;
-   /* background: -webkit-linear-gradient(black, #2a0845); */
-   background: -webkit-linear-gradient(#4cc9f0,#4cc9f0);
+    background: -webkit-linear-gradient(#4cc9f0,#4cc9f0);
    -webkit-background-clip: text;
    -webkit-text-fill-color: transparent;
    
