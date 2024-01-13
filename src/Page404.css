@@ -1,0 +1,11 @@
+.err
+{
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.err1{
+    font-size: 10vh;
+}

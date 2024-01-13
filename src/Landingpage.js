@@ -14,7 +14,7 @@
         <div className="bgvideo">
           <div className="content-outer"></div>
           <div className="content">
-            <h1>DevDuel</h1>
+            <h1 className="dev">DevDuel</h1>
             <h3>Programming quizz</h3>
             <p> _____________________________</p>
 

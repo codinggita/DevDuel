@@ -43,7 +43,7 @@
    z-index: 1;
  }
 
- h1 {
+.dev {
    font-weight: 900;
    font-size: 10vh;
     background: -webkit-linear-gradient(#4cc9f0,#4cc9f0);
