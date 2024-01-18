@@ -11,9 +11,9 @@ ReactDOM.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<LandingPg />} />
-      <Route path="/Export" element={<Export />} />
-      <Route path="/Form" element={<Form />} />
-      <Route path="/Back" element={<Back />} />
+      <Route path="/export" element={<Export />} />
+      <Route path="/form" element={<Form />} />
+      <Route path="/back" element={<Back />} />
       <Route path="*" element={<Page404 />} />
     </Routes>
   </BrowserRouter>,
