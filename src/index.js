@@ -3,9 +3,9 @@ import ReactDOM from "react-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LandingPg from "./Landingpage"; 
 import Export from "./Explore"; 
-import Form from "./Form"; 
-import Back from "./Landingpage"; 
-import  Page404 from "./Page404";  
+import Form from "./Form";  
+import Back from "./Landingpage";
+import Page404 from "./Page404";  
 
 ReactDOM.render(
   <BrowserRouter>

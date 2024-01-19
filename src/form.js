@@ -1,20 +1,25 @@
-import React from 'react';
-import "./Form.css";
+import React, { useState } from 'react';
+import './Form.css';
 
+const Form = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    sdate: '',
+    remember: true,
+  });
 
-class BookingForm extends React.Component {
-  handleSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const form = e.target;
-    
+
     try {
-      const response = await fetch(form.action, {
+      const response = await fetch('https://sheetdb.io/api/v1/gat8bnsz7s5m6', {
         method: 'POST',
-        body: new FormData(form),
+        body: new FormData(e.target),
       });
-      
+
       if (response.ok) {
-        alert("Successfully Booked");
+        alert('Successfully Booked');
       } else {
         console.error('Booking failed:', response.statusText);
       }
@@ -23,51 +28,93 @@ class BookingForm extends React.Component {
     }
   };
 
-  render() {
-    return (
-      <>
-        <div className="container-outer">
-      <div className="form-outer">  
-         <form
-          action="https://sheetdb.io/api/v1/gat8bnsz7s5m6"
-          method="post"
-          id="sheetdb-form"
-          onSubmit={this.handleSubmit}>
-          
-          <div className="container">
-            <h1 align="center">Game Form</h1>
-            <hr/>
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
 
-            <label htmlFor="name"><b>Name</b></label>
-            <input type="text" placeholder="Enter Name" name="data[name]" required />
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: type === 'checkbox' ? checked : value,
+    }));
+  };
 
-            <label htmlFor="email"><b>Email</b></label>
-            <input type="text" placeholder="Enter Email" name="data[email]" required />
+  return (
+    <>
+      <div className="container-outer">
+        <div className="form-outer">
+          <form
+            action="https://sheetdb.io/api/v1/gat8bnsz7s5m6"
+            method="post"
+            id="sheetdb-form"
+            onSubmit={handleSubmit}
+          >
+            <div className="container">
+              <h1 align="center">Game Form</h1>
+              <hr />
 
-            <div className="dates">
-              <label htmlFor="sdate"><b>Birthday Date :</b></label>
-              <input type="date" placeholder="Enter Birthday Date" name="data[sdate]" required />
+              <label htmlFor="name"><b>Name</b></label>
+              <input
+                type="text"
+                placeholder="Enter Name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
+
+              <label htmlFor="email"><b>Email</b></label>
+              <input
+                type="text"
+                placeholder="Enter Email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+
+              <div className="dates">
+                <label htmlFor="sdate"><b>Birthday Date :</b></label>
+                <input
+                  type="date"
+                  placeholder="Enter Birthday Date"
+                  name="sdate"
+                  value={formData.sdate}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+
+              <br />
+
+              <label>
+                <input
+                  type="checkbox"
+                  defaultChecked={formData.remember}
+                  name="remember"
+                  style={{ marginBottom: '15px' }}
+                  onChange={handleChange}
+                />{' '}
+                Remember me
+              </label>
+
+              <p>
+                By filling your information, you agree to our{' '}
+                <a href="#" style={{ color: 'dodgerblue' }}>
+                  Terms & Privacy
+                </a>
+                .
+              </p>
+
+              <div className="clearfix">
+                <button type="submit" className="btn-submit">
+                  Submit
+                </button>
+              </div>
             </div>
+          </form>
+        </div>
+      </div>
+    </>
+  );
+};
 
-            <br />
-
-            <label>
-              <input type="checkbox" defaultChecked name="remember" style={{ marginBottom: '15px' }} /> Remember me
-            </label>
-
-            <p>By filling your information, you agree to our <a href="#" style={{ color: 'dodgerblue' }}>Terms & Privacy</a>.</p>
-
-            <div className="clearfix">
-              <button type="submit" className="btn-submit">Submit</button>
-            </div>
-          </div>
-        </form>
-
-        </div>  
-        </div> 
-      </>
-    );
-  }
-}
-
-export default BookingForm;
+export default Form;
