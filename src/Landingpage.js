@@ -20,7 +20,7 @@
 
             <div className="btns">
               <div>
-                  <button className="btn" onClick={()=>navigate("./form")} >Start now</button>
+                  <button className="btn" onClick={()=>navigate("./Form")} >Start now</button>
                 
                 <div className="logos">
                   <img src={githublogo} alt="github logo" />
