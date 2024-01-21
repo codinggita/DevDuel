@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import './Form.css';
 
 const Form = () => {
@@ -8,6 +11,21 @@ const Form = () => {
     sdate: '',
     remember: true,
   });
+
+  const notify = () => {
+    toast.success('Success', {
+      position: "top-right",
+autoClose: 2000,
+hideProgressBar: false,
+closeOnClick: true,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+theme: "dark",
+
+
+    });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,7 +37,7 @@ const Form = () => {
       });
 
       if (response.ok) {
-        alert('Successfully Booked');
+        notify();
       } else {
         console.error('Booking failed:', response.statusText);
       }
@@ -39,6 +57,7 @@ const Form = () => {
 
   return (
     <>
+      <ToastContainer />
       <div className="container-outer">
         <div className="form-outer">
           <form
@@ -105,7 +124,7 @@ const Form = () => {
               </p>
 
               <div className="clearfix">
-                <button type="submit" className="btn-submit">
+                <button type="submit" className="btn-submit" >
                   Submit
                 </button>
               </div>
