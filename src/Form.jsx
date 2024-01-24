@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from "react-router-dom"; 
+
 
 import './Form.css';
 
 const Form = () => {
+
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -38,6 +43,8 @@ theme: "dark",
 
       if (response.ok) {
         notify();
+        //go to QuizzApp page
+        navigate("/quizz");
       } else {
         console.error('Booking failed:', response.statusText);
       }

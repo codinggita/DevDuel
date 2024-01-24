@@ -5,7 +5,8 @@ import LandingPg from "./Landingpage";
 import Export from "./Explore"; 
 import Form from "./Form";  
 import Back from "./Landingpage";
-import Page404 from "./Page404";  
+import Page404 from "./Page404"; 
+import QuizzApp from "./quizz"; 
 
 ReactDOM.render(
   <BrowserRouter>
@@ -15,6 +16,7 @@ ReactDOM.render(
       <Route path="/form" element={<Form />} />
       <Route path="/back" element={<Back />} />
       <Route path="*" element={<Page404 />} />
+      <Route path="/quizz" element={<QuizzApp />} />
     </Routes>
   </BrowserRouter>,
   document.getElementById("root")
