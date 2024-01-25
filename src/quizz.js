@@ -165,8 +165,58 @@ const questions = [
   },
 ];
 
-function QuizzApp()
+const QuizzApp = () =>
 {
+  const [shuffledQuestions, setShuffledQuestions] = useState(shuffle(questions).slice(0, 5));
+
+  const [isHovered, setHovered] = useState(null);
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [score, setScore] = useState(0);
+  const [isCorrect, setIsCorrect] = useState(null);
+  const [timer, setTimer] = useState(10); 
+
+  useEffect(() => {
+    if (currentQuestion < shuffledQuestions.length) {
+      const interval = setInterval(() => {
+        setTimer((prevTimer) => {
+          if (prevTimer > 0) {
+            return prevTimer - 1;
+          } else {
+            handleNextQuestion();
+            return prevTimer;
+          }
+        });
+      }, 1000);
+
+      return () => clearInterval(interval);
+    }
+  }, [currentQuestion, shuffledQuestions]);
+
+  const handleOptionClick = (selectedOption) => {
+    if (selectedOption === shuffledQuestions[currentQuestion].correctAnswer) {
+      setScore((prevScore) => prevScore + 1);
+      setIsCorrect(true);
+    } else {
+      setIsCorrect(false);
+    }
+
+    setTimer(0); 
+  };
+
+  const handleNextQuestion = () => {
+    setCurrentQuestion((prevQuestion) => prevQuestion + 1);
+    setTimer(10);
+    setIsCorrect(null);
+  };
+
+  const getRandomQuestions = () => {
+    setShuffledQuestions(shuffle(questions).slice(0, 5));
+    setCurrentQuestion(0);
+    setScore(0);
+    setTimer(10);
+    setIsCorrect(null);
+  };
+
     return(
         <>
         This is quizz page!!
