@@ -1,14 +1,23 @@
-import React from "react";
+import React ,{useEffect,useState} from "react";
 import {useNavigate} from "react-router-dom";
 import "./Explore.css";
+import devduelshort from "./images/Subscrie.mp4"; 
 
 function Explore(){
-    const navigate = useNavigate();
-    return(
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      document.getElementById(`entry`).style.display = 'none';
+    }, 2000);
+
+       return () => clearTimeout(timeoutId);
+  }, []);
+
+      return(
         <>
-      <div className="aa">
-        <h1>Explore</h1>
-        <button className="explore-btn" onClick={()=>navigate("/")}>back</button>
+      <div className="explore-outer">
+      <video id="entry" src={devduelshort} autoPlay muted set/>
+      <h1>hello yash</h1>
       </div>
         
         </>
