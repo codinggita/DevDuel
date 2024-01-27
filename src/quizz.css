@@ -1,0 +1,48 @@
+.outer {
+    text-align: center;
+    margin-top: 50px color="#333";
+}
+
+.inner {
+    background-color: '#f9f9f9';
+    padding: 20px;
+
+}
+
+.Question-heading {
+    color: #007bff;
+    font-weight: bold;
+}
+
+.question {
+    color: #555;
+    font-weight: bold;
+}
+
+.mcqs {
+    list-style-type: none;
+    padding: 0;
+}
+
+
+.final-score {
+    color: #555;
+}
+
+.result {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+}
+.quizz-completed{
+    color: #007bff;
+}
+.restart
+{
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
