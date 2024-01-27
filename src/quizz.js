@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import shuffle from 'lodash/shuffle';
+import "./quizz.css";
 
 const questions = [
   {
@@ -217,10 +219,70 @@ const QuizzApp = () =>
     setIsCorrect(null);
   };
 
-    return(
-        <>
-        This is quizz page!!
-        </>
-    )
-}
+  return (
+    <div className='outer'>
+      {currentQuestion < shuffledQuestions.length ? (
+        <div className='inner'>
+          <h2 className='Question-heading'>Question {currentQuestion + 1}</h2>
+          <p className='question'>{shuffledQuestions[currentQuestion].question}</p>
+          <ul className='mcqs'  >
+            {shuffledQuestions[currentQuestion].options.map((option, index) => (
+              <li
+                key={index}
+                onClick={() => handleOptionClick(option)}
+                style={{
+                  cursor: 'pointer',
+                  backgroundColor: '#ddd',
+                  padding: '10px',
+                  margin: '5px',
+                  borderRadius: '5px',
+                  color: '#333',
+                  transition: 'background-color 0.3s',
+                  ...(isHovered === index && { backgroundColor: '#c0c0c0' }),
+                }}
+                onMouseEnter={() => setHovered(index)}
+                onMouseLeave={() => setHovered(null)}
+              >
+                {option}
+              </li>
+            ))}
+          </ul>
+
+          <div>
+            {isCorrect !== null && (
+              <p style={{ color: isCorrect ? '#28a745' : '#dc3545', fontWeight: 'bold' }}>
+                {isCorrect ? 'Correct!' : 'Wrong!'} Your score: {score}
+              </p>
+            )}
+            <p style={{ fontWeight: 'bold' }}>Time remaining: {timer} seconds</p>
+          </div>
+          <button
+            onClick={handleNextQuestion}
+            style={{
+              backgroundColor: '#007bff',
+              color: '#fff',
+              padding: '10px',
+              borderRadius: '5px',
+              cursor: 'pointer',
+            }}
+          >
+            Next Question
+          </button>
+        </div>
+      ) : (
+        <div  classname="result">
+          <h2 className='quizz-completed'>Quiz Completed!</h2>
+          <p className='#555'>Your final score is: {score}</p>
+          <button
+            onClick={getRandomQuestions}
+            className='restart'
+          >
+            Restart Quiz
+          </button>
+        </div>
+      )}
+    </div>
+  );
+};
+
 export default QuizzApp;
