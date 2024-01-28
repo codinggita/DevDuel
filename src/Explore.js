@@ -19,8 +19,8 @@ function Explore() {
       </div>
 
       <div className="explore-outer">
-        <h1 align="center">About this Game</h1>
-        <hr />
+        <h1 className="explore-h1"align="center">About this Quiz-Game</h1>
+        
         <h3 id="explore-h3">
           <ul className="explore-ul">
             <li>
@@ -83,9 +83,10 @@ function Explore() {
             </li>
           </ul>
         </h3>
-        <hr></hr>
-        <footer>
+        <footer className="elplore-footer">
+          <div className="footer-inner">
           <h5 align="center">This Application is in Beta mode</h5>
+          </div>
         </footer>
       </div>
     </>
