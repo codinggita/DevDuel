@@ -223,11 +223,13 @@ const QuizzApp = () =>
     <div className='outer'>
       {currentQuestion < shuffledQuestions.length ? (
         <div className='inner'>
-          <h2 className='Question-heading'>Question {currentQuestion + 1}</h2>
+          <h1 className='Question-heading'>Question {currentQuestion + 1}</h1>
           <p className='question'>{shuffledQuestions[currentQuestion].question}</p>
+          <p className='time'>Time remaining: {timer} seconds</p>
+          <div className='mcq-outer'>
           <ul className='mcqs'  >
             {shuffledQuestions[currentQuestion].options.map((option, index) => (
-              <li
+              <li 
                 key={index}
                 onClick={() => handleOptionClick(option)}
                 style={{
@@ -247,24 +249,18 @@ const QuizzApp = () =>
               </li>
             ))}
           </ul>
+          </div>
 
           <div>
             {isCorrect !== null && (
-              <p style={{ color: isCorrect ? '#28a745' : '#dc3545', fontWeight: 'bold' }}>
+              <p style={{ color: isCorrect ? 'lightgreen' : 'red' ,fontSize:'3vh' }}>
                 {isCorrect ? 'Correct!' : 'Wrong!'} Your score: {score}
               </p>
             )}
-            <p style={{ fontWeight: 'bold' }}>Time remaining: {timer} seconds</p>
+            
           </div>
-          <button
+          <button className='next-question-btn'
             onClick={handleNextQuestion}
-            style={{
-              backgroundColor: '#007bff',
-              color: '#fff',
-              padding: '10px',
-              borderRadius: '5px',
-              cursor: 'pointer',
-            }}
           >
             Next Question
           </button>
@@ -272,7 +268,7 @@ const QuizzApp = () =>
       ) : (
         <div  classname="result">
           <h2 className='quizz-completed'>Quiz Completed!</h2>
-          <p className='#555'>Your final score is: {score}</p>
+          <p className='score'>Your final score is: {score}</p>
           <button
             onClick={getRandomQuestions}
             className='restart'

@@ -75,7 +75,7 @@ theme: "dark",
           >
             <div className="container">
               <h1 align="center">Game Form</h1>
-              <hr />
+            
 
               <label htmlFor="name"><b>Name</b></label>
               <input
@@ -111,24 +111,7 @@ theme: "dark",
 
               <br />
 
-              <label>
-                <input
-                  type="checkbox"
-                  defaultChecked={formData.remember}
-                  name="remember"
-                  style={{ marginBottom: '15px' }}
-                  onChange={handleChange}
-                />{' '}
-                Remember me
-              </label>
-
-              <p>
-                By filling your information, you agree to our{' '}
-                <a href="#" style={{ color: 'dodgerblue' }}>
-                  Terms & Privacy
-                </a>
-                .
-              </p>
+              
 
               <div className="clearfix">
                 <button type="submit" className="btn-submit" >
