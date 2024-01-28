@@ -227,7 +227,7 @@ const QuizzApp = () =>
           <p className='question'>{shuffledQuestions[currentQuestion].question}</p>
           <ul className='mcqs'  >
             {shuffledQuestions[currentQuestion].options.map((option, index) => (
-              <li
+              <li 
                 key={index}
                 onClick={() => handleOptionClick(option)}
                 style={{

@@ -4,10 +4,37 @@
     padding: 0;
     
 }
-.explore-outer{
-   
+.entry-outer{
+   display: flex;
+   justify-content: center;
+   align-items: center;
 }
 .explore-btn
 {
     background-color: aliceblue;
 }
+#entry
+{
+    width: 50%;
+    
+}
+#explore-h3
+{
+    color: white;
+}
+.explore-outer{
+    color: white;
+    box-sizing: border-box;
+    padding: 5px;
+    background-color: #332847;
+    height: 100vh;
+
+ }
+ .explore-ul,li
+ {
+    color: white;
+    list-style-type:symbols(" 🌕 ");
+    padding: 20px;
+
+ }
+
