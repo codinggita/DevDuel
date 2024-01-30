@@ -1,7 +1,7 @@
   import React from "react";
   import "./Landingpage.css";
   // import { motion } from "framer-motion";
-  import { useNavigate } from "react-router-dom"; // Import Link from react-router-dom
+  import { useNavigate } from "react-router-dom";
   import videoBg from "./images/valorent fight.mp4";
   import githublogo from "./images/github-mark.svg";
   import linkdinlogo from "./images/linkdin.png";
@@ -23,13 +23,17 @@
                   <button className="btn" onClick={()=>navigate("./Form")} >Start now</button>
                 
                 <div className="logos">
+                  <a href="https://github.com/ydpatel0309">
                   <img src={githublogo} alt="github logo" />
+                  </a>
                 </div>
               </div>
               <div>
                 <button className="btn" onClick={()=>navigate("/Export")}>Explore now</button>
                 <div className="logos">
-                  <img src={linkdinlogo} alt="linkidin logo" />
+                  <a href="https://www.linkedin.com/in/yash-patel-986787222/">
+                  <img src={linkdinlogo} alt="linkidin logo"/>
+                  </a>
                 </div>
               </div>
             </div>

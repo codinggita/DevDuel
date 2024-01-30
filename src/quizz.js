@@ -220,50 +220,44 @@ const QuizzApp = () =>
   };
 
   return (
-    <div className='outer'>
+    <>
+   <div className="wallpaper">
+       <div className='outer'>
+      
       {currentQuestion < shuffledQuestions.length ? (
         <div className='inner'>
+          <div className='question-outer'>
           <h1 className='Question-heading'>Question {currentQuestion + 1}</h1>
           <p className='question'>{shuffledQuestions[currentQuestion].question}</p>
           <p className='time'>Time remaining: {timer} seconds</p>
+          </div>
           <div className='mcq-outer'>
           <ul className='mcqs'  >
             {shuffledQuestions[currentQuestion].options.map((option, index) => (
-              <li 
+              <td id="mcq-td" 
                 key={index}
                 onClick={() => handleOptionClick(option)}
-                style={{
-                  cursor: 'pointer',
-                  backgroundColor: '#ddd',
-                  padding: '10px',
-                  margin: '5px',
-                  borderRadius: '5px',
-                  color: '#333',
-                  transition: 'background-color 0.3s',
-                  ...(isHovered === index && { backgroundColor: '#c0c0c0' }),
-                }}
+                // style={{
+                //     // background: linear-gradient('to left','#b2fefa','#0ed2f7'),
+                //   ...(isHovered === index && { backgroundColor: '#8f94fb' }),
+                // }}
                 onMouseEnter={() => setHovered(index)}
                 onMouseLeave={() => setHovered(null)}
               >
                 {option}
-              </li>
+              </td>
             ))}
           </ul>
           </div>
 
           <div>
-            {isCorrect !== null && (
+            {/* {isCorrect !== null && (
               <p style={{ color: isCorrect ? 'lightgreen' : 'red' ,fontSize:'3vh' }}>
                 {isCorrect ? 'Correct!' : 'Wrong!'} Your score: {score}
               </p>
-            )}
+            )} */}
             
           </div>
-          <button className='next-question-btn'
-            onClick={handleNextQuestion}
-          >
-            Next Question
-          </button>
         </div>
       ) : (
         <div  classname="result">
@@ -278,7 +272,9 @@ const QuizzApp = () =>
         </div>
       )}
     </div>
-  );
+    </div>
+    </>);
+ 
 };
 
 export default QuizzApp;

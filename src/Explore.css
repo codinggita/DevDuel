@@ -36,14 +36,15 @@
     color: white;
     box-sizing: border-box;
     padding: 5px;
-    /* background: linear-gradient(to left, #a8c0ff, #3f2b96);  */
-    background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+    /* background: linear-gradient(to left, #FFFFFF, #3f2b96);  */
+    /* background: linear-gradient(to right, #0f0c29, #302b63, #24243e); */
     height: 100vh;
+    
+}
 
- }
  .explore-ul,li
  {
-    color: white;
+    color: black;
     list-style-type:symbols(" 🌕 ");
     padding: 20px;
 
