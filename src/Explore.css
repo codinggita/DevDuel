@@ -8,6 +8,7 @@
    display: flex;
    justify-content: center;
    align-items: center;
+   
   
 }
 .explore-btn
@@ -23,7 +24,7 @@
     font-weight:900;
     font-size: 7vh;
     background: linear-gradient(to right, #fc4a1a, #f7b733);    
-        -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
 
     
@@ -36,15 +37,14 @@
     color: white;
     box-sizing: border-box;
     padding: 5px;
-    /* background: linear-gradient(to left, #FFFFFF, #3f2b96);  */
-    /* background: linear-gradient(to right, #0f0c29, #302b63, #24243e); */
     height: 100vh;
+    background: linear-gradient(to left, #642b73, #c6426e); 
     
 }
 
  .explore-ul,li
  {
-    color: black;
+    color: white;
     list-style-type:symbols(" 🌕 ");
     padding: 20px;
 

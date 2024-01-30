@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import shuffle from 'lodash/shuffle';
 import "./quizz.css";
 
+
+const colors = ['#2d70ae', '#2d9da6', '#efa929', '#d5546d']; 
 const questions = [
   {
     question: 'What is the result of the following expression: 5 + "10"?',
@@ -237,10 +239,12 @@ const QuizzApp = () =>
               <td id="mcq-td" 
                 key={index}
                 onClick={() => handleOptionClick(option)}
-                // style={{
-                //     // background: linear-gradient('to left','#b2fefa','#0ed2f7'),
-                //   ...(isHovered === index && { backgroundColor: '#8f94fb' }),
-                // }}
+                style={{                 
+                  backgroundColor: isHovered != index ? colors[index] : '',
+                 ...(isHovered === index && { backgroundColor: '#8f94fb' }),
+
+                 
+                }}
                 onMouseEnter={() => setHovered(index)}
                 onMouseLeave={() => setHovered(null)}
               >
@@ -251,18 +255,12 @@ const QuizzApp = () =>
           </div>
 
           <div>
-            {/* {isCorrect !== null && (
-              <p style={{ color: isCorrect ? 'lightgreen' : 'red' ,fontSize:'3vh' }}>
-                {isCorrect ? 'Correct!' : 'Wrong!'} Your score: {score}
-              </p>
-            )} */}
-            
           </div>
         </div>
       ) : (
         <div  classname="result">
           <h2 className='quizz-completed'>Quiz Completed!</h2>
-          <p className='score'>Your final score is: {score}</p>
+          <h3 className='score'>Your final score is: {score}</h3>
           <button
             onClick={getRandomQuestions}
             className='restart'
