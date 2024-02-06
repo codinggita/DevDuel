@@ -1,23 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Explore.css";
-import devduelshort from "./images/Subscrie.mp4";
 
 function Explore() {
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      document.getElementById(`entry`).style.display = "none";
-    }, 2000);
 
-    return () => clearTimeout(timeoutId);
-  }, []);
 
   return (
     <>
-      <div className="entry-outer">
-        <video id="entry" src={devduelshort} autoPlay muted set />
-      </div>
-
+    
       <div className="explore-outer">
         <h1 className="explore-h1"align="center">About this Quiz-Game</h1>
         
