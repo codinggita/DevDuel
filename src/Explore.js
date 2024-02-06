@@ -1,16 +1,23 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import "./Explore.css";
 
 function Explore() {
 
-
+  const handleClickScroll = () => {
+    const element = document.getElementById("top");
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+  
   return (
     <>
-    
       <div className="explore-outer">
-        <h1 className="explore-h1"align="center">About this Quiz-Game</h1>
-        
+        <div id="top"></div>
+        <h1 className="explore-h1" align="center">
+          About this Quiz-Game
+        </h1>
+
         <h3 id="explore-h3">
           <ul className="explore-ul">
             <li>
@@ -26,8 +33,8 @@ function Explore() {
               Here are some common problems that these quizzes can help solve:
             </li>
             <li>
-              1) Skill Assessment: Quizzes provide a structured way to assess the
-              coding skills and knowledge of individuals. They help identify
+              1) Skill Assessment: Quizzes provide a structured way to assess
+              the coding skills and knowledge of individuals. They help identify
               areas of strength and weakness in programming languages, syntax,
               and concepts.
             </li>
@@ -61,9 +68,9 @@ function Explore() {
               accustomed to common interview-style coding problems.
             </li>
             <li>
-              7) Continuous Learning: Regular quizzes promote continuous learning
-              and improvement. They encourage programmers to stay updated on
-              language features, industry trends, and best practices.
+              7) Continuous Learning: Regular quizzes promote continuous
+              learning and improvement. They encourage programmers to stay
+              updated on language features, industry trends, and best practices.
             </li>
             <li>
               8) Adaptive Learning: Some quiz platforms offer adaptive learning,
@@ -73,13 +80,21 @@ function Explore() {
             </li>
           </ul>
         </h3>
+        <div className="back-to-top-button-outer">
+          <button className="back-to-top-button" onClick={handleClickScroll}>
+            <svg className="svgIcon" viewBox="0 0 384 512">
+              <path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"></path>
+            </svg>
+          </button>
+        </div>
         <footer className="elplore-footer">
           <div className="footer-inner">
-          <h5 align="center">This Application is in Beta mode</h5>
+            <h5 align="center">This Application is in Beta mode</h5>
           </div>
         </footer>
       </div>
     </>
   );
 }
+
 export default Explore;
