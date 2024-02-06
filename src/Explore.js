@@ -15,7 +15,7 @@ function Explore() {
   return (
     <>
       <div className="entry-outer">
-        {/* <video id="entry" src={devduelshort} autoPlay muted set /> */}
+        <video id="entry" src={devduelshort} autoPlay muted set />
       </div>
 
       <div className="explore-outer">
