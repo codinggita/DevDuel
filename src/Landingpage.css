@@ -22,9 +22,10 @@
 
  .bgvideo-outer {
    filter:contrast(1.5);
+
  }
 
- video {
+.bgvideo-outer video {
 
    width: 100%;
    height: 100vh;
@@ -122,4 +123,11 @@
  
  .btn:active {
   transform: scale(0.9);
+ }
+
+ @media only screen and (max-width: 600px) {
+  .bgvideo-outer
+  {
+    display: none;
+  }
  }
